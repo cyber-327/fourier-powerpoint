@@ -1,0 +1,102 @@
+:root {
+  --ink: #333;
+  --muted: #6a6a73;
+  --blue: #4657d7;
+  --cyan: #57a7cc;
+  --pink: #e91e63;
+  --orange: #ed7656;
+  --panel: #ffffff;
+  --page: #f5f6fb;
+  --border: rgba(20, 24, 45, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; min-height: 100%; }
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--page);
+}
+
+.page-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 44px 0 30px;
+}
+
+.page-header { max-width: 760px; margin: 0 auto 32px; text-align: center; }
+.eyebrow { margin: 0 0 8px; color: var(--blue); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: 12px; }
+h1 { margin: 0; font-size: clamp(32px, 5vw, 56px); letter-spacing: -0.035em; }
+.intro { color: var(--muted); font-size: 18px; line-height: 1.55; margin: 14px auto 0; }
+
+.demo-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 12px 36px rgba(29, 38, 89, 0.08);
+  padding: 28px;
+  margin: 0 auto 28px;
+  max-width: 760px;
+}
+
+.demo-copy { text-align: center; margin-bottom: 18px; }
+.demo-copy h2 { margin: 0 0 6px; font-size: 27px; letter-spacing: -0.02em; }
+.demo-copy p { margin: 0; color: var(--muted); line-height: 1.45; }
+
+.sketch {
+  display: block;
+  width: min(100%, 500px);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.16);
+  border-radius: 8px;
+  box-shadow: 0 3px 12px rgba(0,0,0,.10);
+}
+
+.controls { width: min(100%, 500px); margin: 22px auto 0; }
+.controls label { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; font-weight: 650; }
+.controls output { min-width: 2.5em; text-align: right; color: var(--blue); font-variant-numeric: tabular-nums; }
+
+input[type="range"] { width: 100%; accent-color: var(--blue); cursor: pointer; }
+
+.button {
+  display: block;
+  margin: 20px auto 0;
+  background: var(--pink);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  font-size: 18px;
+  padding: .65em 1.25em;
+  border-radius: 7px;
+  border: 0;
+  cursor: pointer;
+  transition: transform .1s linear, background-color .1s linear;
+}
+.button:hover, .button:focus-visible { background: var(--orange); }
+.button:active { transform: scale(.96); }
+
+footer { text-align: center; color: var(--muted); font-size: 13px; line-height: 1.45; margin: 24px auto 0; max-width: 760px; }
+a { color: var(--blue); }
+
+/* Presentation modes:
+   ?demo=combo  -> show only the combined-wave demo
+   ?demo=square -> show only the square-wave demo
+   ?clean=1     -> hide page heading/footer for cleaner embedding
+*/
+body.clean .page-header, body.clean footer { display: none; }
+body.clean .page-shell { padding-top: 16px; }
+body.single-demo .demo-card { margin-bottom: 0; }
+body.single-demo .page-shell { width: min(820px, calc(100% - 24px)); }
+body.hide-combo #combo-demo { display: none; }
+body.hide-square #square-demo { display: none; }
+
+@media (max-width: 620px) {
+  .page-shell { width: min(100% - 20px, 1180px); padding-top: 24px; }
+  .demo-card { padding: 16px; border-radius: 12px; }
+  .demo-copy h2 { font-size: 23px; }
+}
