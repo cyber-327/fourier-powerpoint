@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Fourier PowerPoint Demos</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <main>
+
+        <section>
+            <h2>Two Sine Waves Combined</h2>
+
+            <canvas
+                id="combo-sine-wave-split"
+                class="sketch"
+                width="500"
+                height="500">
+            </canvas>
+        </section>
+
+
+        <section>
+            <h2>Building a Square Wave</h2>
+
+            <canvas
+                id="square-wave-build-up"
+                class="sketch"
+                width="500"
+                height="500">
+            </canvas>
+
+            <input
+                id="square-wave-build-up-slider"
+                type="range"
+                min="0"
+                max="1"
+                value="0"
+                step="any">
+
+            <button
+                id="square-wave-button"
+                class="button">
+                Play Wave
+            </button>
+
+        </section>
+
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+
+</body>
+</html>
